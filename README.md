@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+RAG Chatbot – Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the React + SCSS frontend for the RAG-powered chatbot assignment.
+It provides a simple chat interface where users can ask questions, view responses, and reset their chat session.
 
-## Available Scripts
+🚀 Features
 
-In the project directory, you can run:
+Chat UI with past messages
 
-### `npm start`
+Input box for queries
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Streaming-like bot responses (typed effect)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Reset session button
 
-### `npm test`
+API calls to backend (/session, /chat/:sessionId, /reset/:sessionId)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+🛠 Tech Stack
 
-### `npm run build`
+React (CRA) – Frontend framework
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+SCSS – Styling
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Axios – API requests
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+⚙️ Setup & Run Locally
+1. Clone Repo
+git clone https://github.com/your-username/rag-chatbot-frontend.git
+cd rag-chatbot-frontend
 
-### `npm run eject`
+2. Install Dependencies
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Configure Backend URL
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+In src/App.js, set the API URL to your backend (default localhost:5000):
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+const API_URL = "http://localhost:5000";
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Run App
+npm start
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Frontend will start at 👉 http://localhost:3000
+.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+🧪 How to Test
 
-### Code Splitting
+On page load → new session is created via backend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Type a message → request is sent to backend (/chat/:sessionId).
 
-### Analyzing the Bundle Size
+Chat history is displayed in UI.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Click Reset → clears session history.
 
-### Making a Progressive Web App
+📸 Demo Flow
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+User enters a query.
 
-### Advanced Configuration
+Bot fetches response from backend (Gemini + Redis + Qdrant).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Conversation is shown in chat window.
 
-### Deployment
+Reset button clears chat history for that session.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+📌 Notes
 
-### `npm run build` fails to minify
+This repo only contains frontend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Make sure backend is running before testing frontend.
